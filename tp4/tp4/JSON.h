@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string.h>
 
+typedef unsigned int uint;
+
 
 class JSONObject
 {
