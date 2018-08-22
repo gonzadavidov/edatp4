@@ -2,12 +2,12 @@
 
 
 
-JSOError::JSOError()
+JSOError::JSOError(bool hasFailed = false, const char * Desc = NULL)
 {
 
 }
 
-string JSOError::getErorString()
+std::string JSOError::getErrorString()
 {
 
 }

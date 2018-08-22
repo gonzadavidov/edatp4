@@ -2,7 +2,8 @@
 #define JSOERROR_H
 
 #include <iostream>
-#include <string.h>
+#include <string>
+
 
 /* Clase que permite trasmitir errores generados al utilizar JSONObject
 * si no hubo error se puede generar un JSONError err que al llamar a
@@ -17,11 +18,12 @@
 
 class JSOError
 {
+
 public:
 
-	JSOError(bool has Failed = false, const char * Desc = NULL);
-	string getErorString(void);
-	bool hasFailed(void);
+	JSOError(bool hasFailed = false, const char * Desc = NULL);
+	std::string getErrorString ();
+	bool hasFailed();
 }
 
 #endif

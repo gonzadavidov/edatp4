@@ -2,15 +2,19 @@
 #define JSON_H
 
 #include <iostream>
-#include <string.h>
+#include <string>
+#include "JSOERROR.h"
 
 typedef unsigned int uint;
 
-
 class JSONObject
 {
-public:
+	JSOError e;
+	uint fieldCount;
+	const char *string;
+	
 
+public:
 	/* Constructores de JSONObject */
 	/* El constructor por defecto inicializa un JSONObject vacío
 	* Si se desea luego agregar un JSON a parsear se pueden usar las
@@ -28,11 +32,11 @@ public:
 	* y se le informará al usuario cuando este invoque a getError mediante
 	* el objeto JSONError
 	*/
-	JSONObject(string& s);
+	JSONObject(std::string& s);
 	JSONObject(const char * s);
 	/* Devuelve en su nombre la cantidad de campos que contiene el
 	* JSONObject */
-	unsigned int getFieldCount(void);
+	uint getFieldCount(void);
 
 	/* Devuelve en su nombre el tipo de campo de f. Los posibles tipos son
 	* (todos en minúscula):
@@ -75,7 +79,7 @@ public:
 	* si f es no pertenece al objeto devuelve 0. En este último caso genera
 	* un error que almacena internamente
 	*/
-	unsigned int getFieldSize(const char * f);
+	uint getFieldSize(const char * f);
 	/* Devuelve true si el campo f se encuentra dentro del JSONObject
 	* (primera iteración).
 	* No tiene que iterar por todos los objetos JSON contenidos dentro del
@@ -161,19 +165,19 @@ public:
 	*/
 	void print(void);
 	/* Devuelve en su nombre un JSONError según se explica abajo*/
-	JSONError getError(void);
+	JSOError getError(void);
 
 	/*
 	* En caso de generar un objeto JSON por defecto
-	* con esta funciones se le puede pasar un buffer a analizar
+	* con estas funciones se le puede pasar un buffer a analizar
 	* si el análisis fuera correcto devuelven true.
 	* caso contrario devuelve false y genera un error que almacena
 	* internamente.
-	* Si el objeto se creao con los constructores que reciben un buffer
+	* Si el objeto se creo con los constructores que reciben un buffer
 	* con estas funciones podemos cambiar el JSON parseado por otro.
 	*/
 	bool parseString(const char * s);
-	bool parseString(string& s);
+	bool parseString(std::string& s);
 };
 
 

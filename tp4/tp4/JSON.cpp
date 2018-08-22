@@ -1,64 +1,83 @@
 #include "JSON.h"
 
+
+
+
+
 JSONObject::JSONObject()
+{
+	fieldCount = 0;
+}
+
+
+
+JSONObject::JSONObject(std::string & s)
 {
 
 }
 
+JSONObject::JSONObject(const char * s)
+{
+	string = s;
+}
+
+
+
 uint JSONObject::getFieldCount()
 {
-
+	return fieldCount;
 }
 
 const char * JSONObject::getFieldType(const char * f)
 {
-	return nullptr;
+	return ;
 }
 
 
 
 const char * JSONObject::getArrayType(const char * f)
 {
-	return nullptr;
+	return ;
 }
 
-unsigned int JSONObject::getFieldSize(const char * f)
+uint JSONObject::getFieldSize(const char * f)
 {
-	return 0;
+	return ;
 }
 
 bool JSONObject::isFieldPresent(const char * f)
 {
-	return false;
+	return ;
 }
 
 void * JSONObject::copyField(const char * f)
 {
-	return nullptr;
+	return ;
 }
 
 void * JSONObject::copyArrayValue(const char * f, unsigned int pos)
 {
-	return nullptr;
+	return ;
 }
 
 void JSONObject::print(void)
 {
+
 }
 
-JSONError JSONObject::getError(void)
+JSOError JSONObject::getError(void)
 {
-	return JSONError();
+	return JSOError();
 }
 
-bool JSONObject::parseString(const char * s)
+bool JSONObject::parseString(const char * s)		//FSM
 {
-	return false;
+	return ; 
 }
 
-bool JSONObject::parseString(string & s)
+bool JSONObject::parseString(std::string & s)
 {
-	return false;
+	return ;
 }
 
 
